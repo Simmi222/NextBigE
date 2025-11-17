@@ -1,0 +1,50 @@
+:root{
+  --bg: #ffffff;
+  --text: #111827;
+  --card: #f3f4f6;
+}
+
+[data-theme='dark']{
+  --bg: #0b1220;
+  --text: #e6eef6;
+  --card: #0f1724;
+}
+
+html,body,#root{height:100%;}
+body{
+  margin:0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background:var(--bg);
+  color:var(--text);
+}
+.app{
+  padding:16px;
+  display:flex;
+  gap:16px;
+  flex-direction:column;
+}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;margin-top:12px}
+.card{background:var(--card);padding:12px;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,0.06)}
+.controls{display:flex;gap:8px;align-items:center}
+.skeleton{background:linear-gradient(90deg,#e5e7eb,#f3f4f6,#e5e7eb);height:200px;border-radius:6px}
+
+/* Chart viewport sizing via CSS variable so we can reduce height on mobile */
+.chart-viewport{width:100%;height:var(--chart-height,240px)}
+
+/* Responsive rules for small screens */
+@media (max-width: 600px){
+  .app{padding:12px}
+  .topbar{flex-direction:column;align-items:flex-start;gap:8px}
+  .controls{flex-wrap:wrap}
+  .grid{grid-template-columns:1fr}
+  .card{padding:10px}
+  .chart-viewport{height:180px}
+  .skeleton{height:150px}
+  .card h3{font-size:16px;margin:0 0 8px 0}
+}
+
+@media (max-width: 360px){
+  .chart-viewport{height:140px}
+  .skeleton{height:120px}
+}
