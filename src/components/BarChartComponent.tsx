@@ -1,6 +1,8 @@
 import React from 'react'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts'
 import { MetricData } from '../types'
+import Card from './ui/Card'
+import { CHART_COLORS } from '../utils/colors'
 
 interface Props{ data: MetricData[] }
 
@@ -13,8 +15,8 @@ export default function BarChartComponent({data}:Props){
   const chartData = Object.entries(agg).map(([department, revenue])=>({department, revenue}))
 
   return (
-    <div className="card" aria-label="Department performance bar chart">
-      <h3>Department Performance</h3>
+    <Card aria-label="Department performance bar chart" role="img">
+      <h3 className="title">Department Performance</h3>
       {chartData.length===0 ? <div className="skeleton"/> : (
         <div className="chart-viewport">
           <ResponsiveContainer>
@@ -23,11 +25,11 @@ export default function BarChartComponent({data}:Props){
               <XAxis dataKey="department"/>
               <YAxis />
               <Tooltip/>
-              <Bar dataKey="revenue" fill="#059669" />
+              <Bar dataKey="revenue" fill={CHART_COLORS[2]} />
             </BarChart>
           </ResponsiveContainer>
         </div>
       )}
-    </div>
+    </Card>
   )
 }

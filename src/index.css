@@ -37,7 +37,7 @@ body{
   .app{padding:12px}
   .topbar{flex-direction:column;align-items:flex-start;gap:8px}
   .controls{flex-wrap:wrap}
-  .grid{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr;gap:24px}
   .card{padding:10px}
   .chart-viewport{height:180px}
   .skeleton{height:150px}
@@ -48,3 +48,16 @@ body{
   .chart-viewport{height:140px}
   .skeleton{height:120px}
 }
+
+/* Visual polish */
+.card{border-radius:12px;box-shadow:0 6px 18px rgba(15,23,42,0.06);transition:transform .12s ease,box-shadow .12s ease}
+.card:hover{transform:translateY(-4px);box-shadow:0 18px 36px rgba(15,23,42,0.12)}
+.title{font-weight:700;font-size:18px;margin:0 0 10px 0}
+.btn{background:var(--btn-bg,#06b6d4);color:white;border:none;padding:8px 12px;border-radius:8px;cursor:pointer}
+.btn:focus{outline:2px solid rgba(99,102,241,0.3);outline-offset:2px}
+.controls .btn{padding:6px 10px}
+
+/* Heatmap cell polish */
+.heatmap-cell{width:18px;height:18px;border-radius:4px;transition:transform .15s ease,box-shadow .12s ease}
+.heatmap-cell:hover{transform:scale(1.05);box-shadow:0 6px 12px rgba(2,6,23,0.12)}
+

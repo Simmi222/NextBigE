@@ -1,4 +1,5 @@
 import React from 'react'
+import Card from './ui/Card'
 import { MetricData } from '../types'
 import { format, parseISO } from 'date-fns'
 
@@ -14,7 +15,7 @@ function getWeekStart(d: Date){
 
 export default function HeatmapComponent({data}:Props){
   // build week-row by weekday grid showing average attendance
-  if(data.length===0) return <div className="card"><h3>Attendance Heatmap</h3><div className="skeleton"/></div>
+  if(data.length===0) return <div className="card"><h3 className="title">Attendance Heatmap</h3><div className="skeleton"/></div>
 
   const grouped = new Map<number, number[]>() // weekIndex -> 7-length array
   data.forEach(d=>{
@@ -33,8 +34,8 @@ export default function HeatmapComponent({data}:Props){
   const max = Math.max(...flat, 100)
 
   return (
-    <div className="card" aria-label="Employee attendance heatmap">
-      <h3>Attendance Heatmap</h3>
+    <Card aria-label="Employee attendance heatmap" role="img">
+      <h3 className="title">Attendance Heatmap</h3>
       <div style={{overflowX:'auto'}}>
         <div style={{display:'flex',gap:6,alignItems:'flex-start'}}>
           {weeks.map((w, wi)=> (
@@ -43,12 +44,12 @@ export default function HeatmapComponent({data}:Props){
                 const intensity = Math.round((val / max) * 255)
                 const bg = `rgb(${255-intensity},${255 - Math.round(intensity/2)},${255})`
                 const label = `${format(new Date(w.weekStart + d*24*60*60*1000),'EEE')}: ${Math.round(val)}`
-                return <div key={d} title={label} tabIndex={0} style={{width:18,height:18,background:bg,borderRadius:3}} aria-label={label}></div>
+                return <div key={d} title={`Attendance: ${Math.round(val)}% on ${format(new Date(w.weekStart + d*24*60*60*1000),'yyyy-MM-dd')}`} tabIndex={0} className="heatmap-cell" style={{background:bg}} aria-label={label}></div>
               })}
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </Card>
   )
 }

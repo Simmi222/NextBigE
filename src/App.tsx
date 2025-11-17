@@ -38,8 +38,10 @@ export default function App(){
   return (
     <div className="app" role="application" aria-label="Interactive dashboard">
       <div className="topbar">
-        <h1>Company Metrics Dashboard</h1>
-        <Controls data={data} onFilterChange={setFilters} departments={departments} theme={theme} onThemeChange={(t)=>setTheme(t as any)} />
+        <div className="card" style={{width:'100%',display:'flex',alignItems:'center',justifyContent:'space-between',gap:12}}>
+          <h1>Company Metrics Dashboard</h1>
+          <Controls data={data} onFilterChange={setFilters} departments={departments} theme={theme} onThemeChange={(t)=>setTheme(t as any)} />
+        </div>
       </div>
 
       {loading ? <div className="grid">

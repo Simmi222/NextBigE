@@ -44,10 +44,10 @@ export default function Controls({data,onFilterChange,departments,theme,onThemeC
           {departments.map(d=>(<option key={d} value={d}>{d}</option>))}
         </select>
       </label>
-      <button onClick={apply} aria-label="Apply filters">Apply</button>
-      <button onClick={()=>onThemeChange(theme==='dark'?'light':'dark')} aria-pressed={theme==='dark'} aria-label="Toggle theme">Toggle Theme</button>
-      <button onClick={()=>exportChart('png')} aria-label="Export PNG">Export PNG</button>
-      <button onClick={()=>exportChart('svg')} aria-label="Export SVG">Export SVG</button>
+      <button className="btn" onClick={apply} aria-label="Apply filters">Apply</button>
+      <button className="btn" onClick={()=>onThemeChange(theme==='dark'?'light':'dark')} aria-pressed={theme==='dark'} aria-label="Toggle theme">Toggle Theme</button>
+      <button className="btn" onClick={()=>exportChart('png')} aria-label="Export PNG">Export PNG</button>
+      <button className="btn" onClick={()=>exportChart('svg')} aria-label="Export SVG">Export SVG</button>
     </div>
   )
 }
