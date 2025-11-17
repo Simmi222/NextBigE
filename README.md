@@ -2,7 +2,7 @@
 Last Updated: 2025-11-17
   
 
-  
+
 This is a small React + TypeScript dashboard (Vite) demonstrating reusable visualization components and features requested in the assignment.
 
 Features implemented:
@@ -47,6 +47,13 @@ Features
 - Export charts as PNG and SVG
 - Responsive layout and skeleton loading states
 - Accessibility: ARIA labels, keyboard focusable elements
+
+
+Live Demo
+---------
+You can view the deployed dashboard here:
+
+[https://next-big-e.vercel.app/](https://next-big-e.vercel.app/)
 
 Chart Libraries Used
 --------------------
